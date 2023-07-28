@@ -1,33 +1,61 @@
-/*
- * Pago por horas
- * El total de horas trabajadas
- *
- * Si el total de horas trabajadas es mayor a 40, entonces
- * se debe calcular el pago por horas extras y el pago por horas
- * Si el total de horas no es mayor a 40, entonces
- * se debe calcular el pago por horas
- */
+const message = 'Estructura equipo de trabajo' 
 
-const calcularTotales = (MejorSueldoBruto, añosTrabajados) => {
-    if (añosTrabajados > 40) {
-        let totalPagoExtra = (añosTrabajados - 40)* MejorSueldoBruto * 2;
-        let totalPago = 40 * MejorSueldoBruto;
-        document.querySelector(
-            "#resultado"
-        ).innerHTML = `El total de la indemnización es: ${totalPago} y el pago de Preaviso es: ${totalPagoExtra}. El total a pagar es: ${
-            totalPago + totalPagoExtra
-        }`;
-    } else {
-        let totalPago = MejorSueldoBruto * añosTrabajados;
-        document.querySelector(
-            "#resultado"
-        ).innerHTML = `El total de a pagar: ${totalPago}`;
-    }
-};
+document.querySelector('#header').innerHTML = message
 
-document.querySelector("#pro_calc").addEventListener("click", (e) => {
-    e.preventDefault();
-    let añosTrabajados= +document.querySelector("#horas_trabajadas").value;
-    let MejorSueldoBruto = +document.querySelector("#precio_hora").value;
-    calcularTotales(MejorSueldoBruto, añosTrabajados);
-});
+console.log(message)
+
+let equipo = [
+	{
+  		nombre: "Florencia Romina Varela",
+    	posicion: "Supervisor"
+ 	 },
+  	{
+  		nombre: "Nicolás Cuesta",
+    	posicion: "Jefe"
+  	},
+  	{
+  		nombre: "Diego García Abad",
+    	posicion: "Gerente"
+  	},
+ 	{
+  		nombre: "Maximiliano Burassi",
+    	posicion: "analista semisenior"
+ 	 },
+  	{
+  		nombre: "Luz Amarilla",
+    	posicion: "analista senior"
+  	},
+  	{
+  		nombre: "Aldana Orihuel",
+    	posicion: "analista semisenior"
+  	},
+  	{
+  		nombre: "Martina Chaffardon",
+    	posicion: "analista junior"
+  },
+
+]
+
+let junior = equipo.filter(miembro => miembro.posicion == "analista junior")
+
+let semiseniors = equipo.filter(miembro => miembro.posicion == "analista semisenior")
+
+let senior = equipo.filter(miembro => miembro.posicion == "analista senior")
+
+let supervisor = equipo.filter(miembro => miembro.posicion == "Supervisor")
+
+let jefe = equipo.filter(miembro => miembro.posicion == "Jefe")
+
+let gerente = equipo.filter(miembro => miembro.posicion == "Gerente")
+
+console.log(semiseniors);
+
+console.log(junior)
+
+console.log(senior)
+
+console.log(supervisor)
+
+console.log(jefe)
+
+console.log(gerente)
