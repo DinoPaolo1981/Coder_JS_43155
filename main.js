@@ -1,3 +1,32 @@
+function createNode(element) {
+    return document.createElement(element);
+}
+
+function append(parent, el) {
+  return parent.appendChild(el);
+}
+
+const ul = document.getElementById('equipo');
+const url = 'https://randomuser.me/api/?results=3';
+
+fetch(url)
+.then((resp) => resp.json())
+.then(function(data) {
+  let authors = data.results;
+  return authors.map(function(author) {
+    let li = createNode('li');
+    let img = createNode('img');
+    let span = createNode('span');
+    img.src = author.picture.medium;
+    span.innerHTML = `${author.name.first} ${author.name.last}`;
+    append(li, img);
+    append(li, span);
+    append(ul, li);
+  })
+})
+.catch(function(error) {
+  console.log(error);
+});
 const boton = document.getElementById('boton')
 let inputIngreso = document.getElementById('ingreso')
 let fechaFin1 = document.getElementById('egreso')
@@ -12,9 +41,13 @@ boton.addEventListener('click', function() {
     fechaFin1.setMinutes(fechaFin1.getMinutes() + fechaFin1.getTimezoneOffset())
     
     function validarSueldo(){
-        if(sueldo.value == ''){
-            alert('Ingresá un monto válido')
-            location.reload()
+        if(sueldo.value == '')
+        {Swal.fire({
+            title: "Error",
+            text: "Ingresá un monto válido",
+            icon: "error",
+            confirmButtonText: "Calcular"
+          });
         }else{
             return sueldo = parseInt(sueldo.value)
         }
@@ -125,8 +158,11 @@ boton.addEventListener('click', function() {
             return dias
         }else if (dias>184 && dias <= 360){
             return dias = (dias-180)
-         }else{
-            alert('Ingresá una fecha válida'); 
+         }else {Swal.fire({
+            title: "Error",
+            text: "Ingresá una fecha válida",
+            icon: "error",
+          }); 
             location.reload();
             e.isImmediatePropagationStopped()    
         }

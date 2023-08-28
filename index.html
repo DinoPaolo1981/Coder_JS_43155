@@ -1,10 +1,11 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Liquidacion Final</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap" rel="stylesheet">
@@ -15,7 +16,9 @@
     <div class='icono-menu'>
         <img src="images/menugris.png" id='icono-menu' class='burger'>
     </div>
-    <h2 class='marca'>Estudio contable Dino Paolo Menichini & Asociados</h2>
+    <h2 class='marca'> Estudio contable Dino Paolo Menichini & Asociados</h2>
+    <ul id="equipo"></ul>        
+    </ul>
     <div class='cont-menu active' id='menu'>
        <ul>
          <a href='#calculadora'><li>Calculadora</li></a>
@@ -119,10 +122,12 @@
     <div id='mje'>
         <div class='infoDiv'>
             <p class='info'>Si querés recibir más información, dejanos tu email y nos pondremos en contacto</p><br>
+        <form id="register">    
             <input type="text" name="nombre" id="nombre" placeholder="Nombre" /><br><br>
             <input type="text" name="apellido" id="apellido" placeholder="Apellido" /><br><br>
             <input class='email' type="email" id='email' placeholder="name@mail.com"><br><br>
             <input type="submit" id='boton2' value="Enviar" />
+        </form>
         </div>
     </div>  
 </section>
